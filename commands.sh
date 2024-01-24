@@ -6,8 +6,8 @@
 # /etc/default/docker
 
 # troubleshooting container
-docker build -t debug-tools .
-docker run -it --rm --network docker_dsi_custom_bridge debug-tools
+docker build -t debug-tools -f dockerfile_troubleshoot .
+docker run -it --rm --network host debug-tools
 
 # conda image
 docker build -t my_conda:latest -f dockerfile_conda .
