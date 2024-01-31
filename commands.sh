@@ -81,3 +81,10 @@ ipython kernel install --name "development" --user
 conda env export -n development > development.yml
 # Import environment
 conda env create -f development.yml
+
+
+##################################################
+###################### NFS #######################
+##################################################
+
+sudo mount -t nfs [IP/Hostname]:/srv/nfs /nfs
