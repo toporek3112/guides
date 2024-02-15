@@ -7,12 +7,21 @@
 
 # troubleshooting container
 docker build -t debug-tools -f dockerfile_troubleshoot .
+docker tag debug-tools:latest 311200/debug-tools:latest
+docker push 311200/debug-tools:latest
+
 docker run -it --rm --network host debug-tools
 
 # conda image
 docker build -t my_conda:latest -f dockerfile_conda .
 docker tag my_conda:latest 311200/my_conda:latest
 docker push 311200/my_conda:latest
+
+# remove all "dangling" images
+## This command removes all dangling images, 
+## which are images not tagged and not referenced by any container
+docker rmi $(docker images -f "dangling=true" -q)
+
 
 #################################################
 ################### Postgres ####################
