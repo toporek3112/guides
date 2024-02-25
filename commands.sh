@@ -81,7 +81,7 @@ conda create -n development python=3.8
 conda activate development
 
 # Install
-conda install jupyter ipykernel
+conda install jupyter ipykernel -y
 
 # Create new kernel for jupyter nodebook
 ipython kernel install --name "development" --user
