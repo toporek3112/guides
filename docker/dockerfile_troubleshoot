@@ -1,5 +1,5 @@
 #################################################################################################
-# This docker image is used for debuging and testing feel free to install additional tools.     #
+# This docker image is used for debugging and testing feel free to install additional tools.    #
 #################################################################################################
 # docker build -t debug-tools .                                                                 #
 # docker run -it --rm --network custom_bridge debug-tools                                       #
@@ -11,13 +11,15 @@ FROM openjdk:11-jdk
 # Set the working directory
 WORKDIR /root
 
-# Install essential tools
+# Install essential tools including mosquitto-clients
 RUN apt-get update && apt-get install -y \
     net-tools \
     procps \
     curl \
     postgresql-client \
     iputils-ping \
+    mosquitto-clients \
+    nmap \
     && rm -rf /var/lib/apt/lists/*
 
 # Download jmxterm
