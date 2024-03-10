@@ -40,6 +40,7 @@ echo "alias dockerir='docker image rm'" >> $BASHRC
 echo "alias dockerp='docker ps'" >> $BASHRC
 echo "alias dockerpa='docker ps -a'" >> $BASHRC
 echo "alias dockzap='f() { docker stop $1 && docker rm $1; }; f'" >> $BASHRC
+echo "alias dockerdebug='docker run -it --rm --network host debug-tools'" >> $BASHRC
 
 # Install required packages for Docker
 echo "Installing required packages for Docker..."

@@ -102,5 +102,5 @@ sudo mount -t nfs [IP/Hostname]:/srv/nfs /nfs
 ################### MOSQUITTO ####################
 ###################################################
 
-mosquitto_sub -h 188.20.0.14 -t "home/temperature"
-mosquitto_pub -h 188.20.0.14 -t "home/temperature" -m "Hello MQTT"
+mosquitto_sub -h 188.20.0.14 -t "weather/balcony"
+mosquitto_pub -h 188.20.0.14 -t "weather/balcony" -m "Hello MQTT"
