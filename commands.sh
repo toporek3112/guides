@@ -126,3 +126,8 @@ set source=""
 set backupfolder=""
 set backupfile=KeePassDB_%date:~-4,4%%date:~-10,2%%date:~-7,2%_%time:~0,2%%time:~3,2%.kdbx
 copy %source% %backupfolder%\%backupfile%
+
+# change admin ui port so nginx can listen on port 80
+sudo vim /etc/lighttpd/lighttpd.conf
+sudo systemctl restart lighttpd
+
