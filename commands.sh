@@ -10,7 +10,7 @@ docker build -t debug-tools -f dockerfile_troubleshoot .
 docker tag debug-tools:latest 311200/debug-tools:latest
 docker push 311200/debug-tools:latest
 
-docker run -it --rm --network host debug-tools
+docker run -it --rm --network host 311200/debug-tools
 
 # conda image
 docker build -t my_conda:latest -f dockerfile_conda .
@@ -104,3 +104,25 @@ sudo mount -t nfs [IP/Hostname]:/srv/nfs /nfs
 
 mosquitto_sub -h 188.20.0.14 -t "weather/balcony"
 mosquitto_pub -h 188.20.0.14 -t "weather/balcony" -m "Hello MQTT"
+
+##################################################
+#################### PI-HOLE #####################
+##################################################
+
+# install
+curl -sSL https://install.pi-hole.net | bash
+# check if admin ui is running
+sudo netstat -tulpn | grep 'lighttpd'
+# change password
+pihole -a -p
+# update os
+sudo apt update && sudo apt upgrade
+# update pi-hole
+pihole -up
+
+## Backup Database script
+@echo off
+set source=""
+set backupfolder=""
+set backupfile=KeePassDB_%date:~-4,4%%date:~-10,2%%date:~-7,2%_%time:~0,2%%time:~3,2%.kdbx
+copy %source% %backupfolder%\%backupfile%
