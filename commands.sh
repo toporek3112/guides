@@ -22,6 +22,8 @@ docker push 311200/my_conda:latest
 ## which are images not tagged and not referenced by any container
 docker rmi $(docker images -f "dangling=true" -q)
 
+# redirect stderr to stdout
+docker logs loki -f > delete_me.log 2>&1
 
 #################################################
 ################### Postgres ####################
