@@ -58,12 +58,21 @@ curl http://localhost:8083/connectors/
 ################### NMAP ########################
 #################################################
 
-# scan network range
-nmap -sn 188.188.188.1/24
+# Ping sweep -> icmp echo requests
+nmap -sP 188.188.188.0/24
 
-# scan ip address
-nmap -sV 188.188.188.22
+# TCP connect scan
+nmap -sT 188.188.188.188
+nmap -sT -p 80,443 188.188.188.188
 
+# Stealthy scan
+nmap -sS 188.188.188.188
+
+# Get OS
+nmap -O 188.188.188.188
+
+# Agressiv scan (takes time)
+nmap -A 188.188.188.188
 
 #################################################
 #################### Conda ######################
