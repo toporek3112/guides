@@ -142,3 +142,17 @@ copy %source% %backupfolder%\%backupfile%
 sudo vim /etc/lighttpd/lighttpd.conf
 sudo systemctl restart lighttpd
 
+#################################################
+################### Kubectl #####################
+#################################################
+
+complete -F __start_kubectl k
+source <(kubectl completion bash)
+source <(helm completion bash)
+
+#################################################
+#################### Helm #######################
+#################################################
+
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
