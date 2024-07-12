@@ -156,3 +156,21 @@ source <(helm completion bash)
 
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 
+##################################################
+################## File System ###################
+##################################################
+
+# dmesg logs
+dmesg | grep -i "sda\|hda\|ata\|scsi"
+
+# identify file systems
+lsblk
+
+# mount HDD
+# create mount point
+mkdir -p /mnt/hdd01
+# mount HDD
+mount /dev/sdb3 /mnt/hdd01
+# make sure HDD mounts automaticaly
+vim /etc/fdtab
+# /dev/sdb3  /mnt/hdd01  ext4  defaults  0  2
